@@ -14,7 +14,7 @@ export class HeaderInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    storageFunction.toLocalStorage('HeaderInterceptor_befor:', req);
+    storageFunction.toLocalStorage('HeaderInterceptor_before', req);
     const reqWithCustomHeader = req.clone({
       headers: req.headers.set(
         'Custom-Header',
@@ -22,7 +22,7 @@ export class HeaderInterceptor implements HttpInterceptor {
       )
     });
     storageFunction.toLocalStorage(
-      'HeaderInterceptor_after:',
+      'HeaderInterceptor_after',
       reqWithCustomHeader
     );
     return next.handle(reqWithCustomHeader);

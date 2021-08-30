@@ -10,8 +10,8 @@ import { HeaderInterceptor } from './interceptors/header.interceptor';
   imports: [BrowserModule, FormsModule, HttpClientModule],
   declarations: [AppComponent],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true }, // ilk çalışacak olan interceptor
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true } // ikinci olarak çalışacak olan interceptor
   ],
   bootstrap: [AppComponent]
 })
